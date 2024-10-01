@@ -5,11 +5,11 @@ import { AddEditTaskModal, ConfirmModal } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteMyTask, editMyTask } from "../../redux/slices/myTasksSlice";
 
-type TaskItemProps = {
+type TaskItemPropsTypes = {
   itemData: taskType;
 };
 
-const TaskItem = ({ itemData }: TaskItemProps) => {
+const TaskItem = ({ itemData }: TaskItemPropsTypes) => {
   const dispatch = useDispatch();
 
   const [openEditTaskModal, setOpenEditTaskModal] = useState(false);

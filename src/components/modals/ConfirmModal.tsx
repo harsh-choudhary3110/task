@@ -1,13 +1,18 @@
 import { Box, Button, Dialog } from "@mui/material";
 
-type confirmModalType = {
+type confirmModalPropsTypes = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   text: string;
   onConfirm: () => void;
 };
 
-const ConfirmModal = ({ open, setOpen, text, onConfirm }: confirmModalType) => {
+const ConfirmModal = ({
+  open,
+  setOpen,
+  text,
+  onConfirm,
+}: confirmModalPropsTypes) => {
   const handleClose = () => {
     setOpen(false);
   };

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addMyTask, editMyTask } from "../../redux/slices/myTasksSlice";
 import { taskType } from "../../types";
 
-type AddEditTaskModalType = {
+type AddEditTaskModalPropsTypes = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   variant: "Add" | "Edit";
@@ -17,7 +17,7 @@ const AddEditTaskModal = ({
   setOpen,
   variant,
   taskToEdit,
-}: AddEditTaskModalType) => {
+}: AddEditTaskModalPropsTypes) => {
   const dispatch = useDispatch();
 
   const [taskValue, setTaskValue] = useState<string>("");

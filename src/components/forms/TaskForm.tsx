@@ -1,6 +1,6 @@
 import { Button, TextField } from "@mui/material";
 
-type taskFormType = {
+type taskFormPropsTypes = {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleCancel: () => void;
@@ -16,7 +16,7 @@ const TaskForm = ({
   handleSubmit,
   error,
   variant,
-}: taskFormType) => {
+}: taskFormPropsTypes) => {
   return (
     <form className="d-flex flex-column gap-4" onSubmit={handleSubmit}>
       <TextField
@@ -30,6 +30,7 @@ const TaskForm = ({
         autoComplete="off"
         rows={4}
         multiline
+        autoFocus // this will work in production mode, won't work due to StrictMode
       />
 
       <div className="d-flex justify-content-end gap-3">
