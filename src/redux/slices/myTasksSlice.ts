@@ -1,23 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { taskType } from "../../types";
 
-const initialState: taskType[] = [
-  {
-    id: 0,
-    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum ad, fuga, corporis omnis accusantium aperiam fugit impedit esse rem fugiat tempore dolor, ullam est sapiente. Eos illo fuga temporibus officia!",
-    completed: false,
-  },
-];
+const initialState: taskType[] = [];
 
 const myTasksSlice = createSlice({
   name: "myTasks",
   initialState,
   reducers: {
-    setMyTasks: (state, action: PayloadAction<taskType[]>) => {
-      state = action.payload;
+    addMyTask: (state, action: PayloadAction<taskType>) => {
+      state.push(action.payload);
+    },
+    editMyTask: (state, action: PayloadAction<taskType>) => {
+      const editIndex = state.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      state[editIndex] = action.payload;
+    },
+    deleteMyTask: (state, action: PayloadAction<taskType>) => {
+      const deleteIndex = state.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      state.splice(deleteIndex, 1);
     },
   },
 });
 
-export const { setMyTasks } = myTasksSlice.actions;
+export const { addMyTask, editMyTask, deleteMyTask } = myTasksSlice.actions;
 export default myTasksSlice;

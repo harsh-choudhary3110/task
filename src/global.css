@@ -5,3 +5,6 @@
   font-family: "Poppins", sans-serif;
   font-style: normal;
 }
+.first-letter-uppercase::first-letter {
+  text-transform: capitalize;
+}
