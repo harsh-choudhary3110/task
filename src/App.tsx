@@ -1,4 +1,4 @@
-import MyTasks from "./_pages/MyTasks";
+import MyTasks from "./_pages/myTasks/MyTasks";
 import "./global.css";
 
 const App = () => {
